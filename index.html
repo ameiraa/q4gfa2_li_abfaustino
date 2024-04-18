@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <label for="numOne">[enter a number between 2 and 10]</label><br>
+        <input type="number" id="numOne">
+        
+        <label for="numTwo"> by </label>
+        <input type="number" id="numTwo"><br><br>
+
+        <input id="submit" type="submit" value="Click here when ready!" onclick="display(); return false">
+
+        <br><br><br><br>
+
+        <div id="table"></div>
+    </form>
+
+    <script>
+        function display(){
+
+            var One=parseInt(document.getElementById("numOne").value);
+            var Two=parseInt(document.getElementById("numTwo").value);
+
+            if((((One<2)||(One>10))||((Two<2)||(Two>10)))){
+                alert('Please enter a number between 2 and 10');
+            }
+            else{
+                var table='<table>';
+
+                for(var i = 1; i <= One; i++){
+                    table += "<tr>";
+                        for(var j = 1; j <= Two; j++){
+                            table += "<td>" + (i*j) + "</td>"
+                        }
+                    table += "</tr>"
+                }
+                table += "</table>"
+                
+                document.getElementById('table').innerHTML=table;
+            }
+        }
+    </script>
+
+</body>
+</html>
